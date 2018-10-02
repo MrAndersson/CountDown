@@ -1,0 +1,75 @@
+h1 {
+    color: white;
+}
+
+h5 {
+    color: white;
+}
+
+h6 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+ul > li {
+    color: white;
+}
+
+hr {
+    background-color: white;
+}
+
+.center-timer {
+    width: 40vh;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.main-container {
+    /* border: 1px solid #ddd; */
+    margin-top: 40px;
+    /* background-color: #e8eef0; */
+    background-color: rgba(232, 238, 240, 0.05);
+    min-height: 90vh;
+}
+
+.sponsor-container {
+    /* border: 1px solid rgb(163, 163, 163); */
+    margin-top: 40px;
+    margin-left: -10px;
+    background-color: rgba(232, 238, 240, 0.05);
+}
+
+.box-shadow {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* LARGE SCREEN LAYOUT */
+
+.marginsLR {
+    margin-left: 10px; 
+    margin-right: 10px;
+}
+
+.sponsor-lg-screen {
+    margin-bottom: 3px; 
+    padding: 5px; 
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+/* PHONE LAYOUT */
+
+.sponsor-phone {
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 10px; 
+    margin-left: 20px; 
+    padding: 5px; 
+    padding-left: 10px; 
+    padding-right: 10px;
+}

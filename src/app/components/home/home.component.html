@@ -1,0 +1,47 @@
+<div class="container-fluid crimson-bg" style="padding-bottom: 30px; margin-top:20px;">
+	<div class="row justify-content-md-center">
+    <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
+      <div class=" sponsor-container box-shadow">
+        <p style="margin-bottom: 3px">Filter</p>
+        <!-- ADD FILTER OPTIONS -->
+      </div>		
+      <div class=" sponsor-container box-shadow">
+        <p style="margin-bottom: 3px">Kommande Event</p>
+        <!-- <div *ngFor="let image of images; let i = index">
+          <hr style="margin-top: 5px; margin-bottom: 8px;"/>
+          <img class="card-img-top sponsor-lg-screen" src="{{image}}" alt="Card image cap">
+        </div> -->
+      </div>
+    </div>
+
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 main-container box-shadow marginsLR">
+      <br>
+      <h1 class="center-timer">{{display}}</h1>
+			<br>
+			<hr>
+      <br>
+      <h5>{{Date}}</h5>
+      <h6>TEMP HOSTs</h6>
+			<br>
+		</div>
+		<div class="d-none d-sm-block col-sm-1 col-md-1 col-lg-1"></div>
+		<!-- <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
+			<div class="sponsor-container box-shadow social-container">
+				<h6 style="margin-left: 10px;">Facebook</h6>
+				<hr class="social-divider-container" />
+			</div>
+			<div class="sponsor-container box-shadow social-container">
+				<h6 style="margin-left: 10px;">Instagram</h6>
+				<hr class="social-divider-container" />
+			</div>
+		</div> -->
+		<!-- SPONSORS ON CELLPHONE #3B5998 #125688 -->
+		<div class="d-sm-none col-xs-1 col-sm-1 sponsor-container box-shadow marginsLR">
+			<p style="margin-bottom: 3px">Hostad av</p>
+			<hr style="margin-top: 5px; margin-bottom: 8px;"/>
+			<div *ngFor="let image of images; let i = index" style="display: inline-block">
+				<img class="card-img-top sponsor-phone" src="{{image}}">
+			</div>
+		</div>
+	</div>
+</div>

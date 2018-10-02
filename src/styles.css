@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    overflow-x: hidden;
+    background-image: url("/assets/tiles/cartographer.png");
+    background-repeat: repeat;
+    color: #656566;
+}
+
+/* Font Family Setup*/
+@font-face {
+    font-family: jurrasic-park;
+    src: url("/assets/fonts/JurassicPark.woff") format("woff");
+}
+@font-face {
+    font-family: star-jedi;
+    src: url("/assets/fonts/Starjedi.woff") format("woff");
+}
+
