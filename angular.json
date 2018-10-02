@@ -28,7 +28,8 @@
               "node_modules/glyphicons-only-bootstrap/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/moment/min/moment.min.js"
             ]
           },
           "configurations": {

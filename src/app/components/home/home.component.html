@@ -1,12 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="container-fluid crimson-bg" style="padding-bottom: 30px; margin-top:20px;">
 	<div class="row justify-content-md-center">
     <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
-      <div class=" sponsor-container box-shadow">
+      <!-- <div class=" sponsor-container box-shadow">
         <p style="margin-bottom: 3px">Filter</p>
-        <!-- ADD FILTER OPTIONS -->
-      </div>		
-      <div class=" sponsor-container box-shadow">
-        <p style="margin-bottom: 3px">Kommande Event</p>
+      </div>		 -->
+      <div class="sponsor-container box-shadow">
+				<p class="marginsLR" style="margin-bottom: 3px">Kommande Event</p>
+				<hr class="marginsLR" style="margin-bottom: 10px;">
         <!-- <div *ngFor="let image of images; let i = index">
           <hr style="margin-top: 5px; margin-bottom: 8px;"/>
           <img class="card-img-top sponsor-lg-screen" src="{{image}}" alt="Card image cap">
@@ -14,15 +16,55 @@
       </div>
     </div>
 
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 main-container box-shadow marginsLR">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 main-container box-shadow">
+			<h3 class="center-relative-to-parent" style="margin-top: 20px;">{{displayName}}</h3>
       <br>
-      <h1 class="center-timer">{{display}}</h1>
+      <h1 class="center-relative-to-parent">
+				<div>
+					{{days}}
+					<div class="center-relative-to-parent" style="font-size: 10px">
+						Day(s)
+					</div>
+				</div>
+				<div class="vl"></div>
+				<div>
+					{{hours}}
+					<div class="center-relative-to-parent" style="font-size: 10px">
+						Hour(s)
+					</div>
+				</div>
+				<div class="vl"></div>
+				<div>
+						{{minutes}}
+					<div class="center-relative-to-parent" style="font-size: 10px">
+							Minute(s)
+					</div>
+				</div>
+				<div class="vl"></div>
+				<div>
+						{{seconds}}
+					<div class="center-relative-to-parent" style="font-size: 10px">
+							Second(s)
+					</div>
+				</div>
+			</h1>
 			<br>
 			<hr>
-      <br>
-      <h5>{{Date}}</h5>
-      <h6>TEMP HOSTs</h6>
 			<br>
+			<div class="center-relative-to-parent">
+				<h5>Date: {{displayDate}}</h5>
+			</div>
+			<br>
+			<div class="center-relative-to-parent">
+				<h5>Location: {{displayLocation}}</h5>
+			</div>
+			<br>
+			<div class="center-relative-to-parent">
+				<h5>Host: {{displayHost}}</h5>
+			</div>
+			<div class="center-relative-to-parent">
+					<a href="{{displayFacebookLink}}" class="fa fa-facebook"></a>
+			</div>
 		</div>
 		<div class="d-none d-sm-block col-sm-1 col-md-1 col-lg-1"></div>
 		<!-- <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">

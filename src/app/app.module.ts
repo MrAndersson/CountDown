@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule }            from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule }           from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 // import { nib } from '../../node_modules/nib';
 
 import { AppComponent }   from './app.component';
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
       appRoutes,
       // { enableTracing: true } // debugging purposes only
     ),
-    HttpModule,
+    HttpModule
   ],
   providers: [
     {

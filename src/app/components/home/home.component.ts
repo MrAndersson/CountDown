@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -7,44 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  Date: Date = new Date;
-  /**
-   * Should get the amount of seconds from current day until the event
-   * FORMAT: YYYY/MM/DD HH:MM:SS
-   */
-  timer: number = 1000;
-  display: string = `${this.getHours()} : ${this.getMinutes()} : ${this.getSeconds()}`;
+  days: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
+  queue: Array<any> = [{date: '2018-10-08 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3'}];
 
-  constructor() { }
+  timer: any;
+  displayDate: any;
+  displayHost: string;
+  displayLocation: string;
+  displayName: string;
+  displayFacebookLink: string;
 
   ngOnInit() {
+    this.timer = moment(this.queue[0].date);
+
+    this.displayDate = moment(this.queue[0].date).format('YYYY/MM/DD HH:mm:ss');
+    this.displayHost = this.queue[0].host;
+    this.displayLocation = this.queue[0].location;
+    this.displayName = this.queue[0].name;
+    this.displayFacebookLink = this.queue[0].fLink;
+
     this.countdown();
-  }
 
-  getSecondsUntilEvent() {
-    const date = new Date();
-    // const eventDate = // Will be read from JSON file
-  }
-
-  getHours() {
-    return this.timer / 3600 | 0
-  }
-
-  getMinutes() {
-    return this.timer/60 | 0;
-  }
-
-  getSeconds() {
-    return this.timer%60 | 0;
+    console.log('Home', this);
   }
 
   countdown(): void {
     setInterval(() => {
-      if(this.timer === 0) {
-        return;
-      }
-      this.timer   = this.timer - 1;
-      this.display = `${this.getHours()} : ${this.getMinutes()} : ${this.getSeconds()}`;
+      const diff = moment(this.timer.diff(moment(new Date())));
+
+      this.days = diff.add('s', 1).format('DD');
+      this.hours = diff.add('s', 1).format('HH');
+      this.minutes = diff.add('s', 1).format('mm');
+      this.seconds = diff.add('s', 1).format('ss');
+
     }, 1000);
 }
 
