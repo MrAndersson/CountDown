@@ -8,11 +8,14 @@ import * as moment from 'moment';
 })
 export class HomeComponent implements OnInit {
 
+  year: any;
   days: string;
   hours: string;
   minutes: string;
   seconds: string;
-  queue: Array<any> = [{date: '2018-10-08 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3'}];
+  queue: Array<any> = [
+    {date: '2018-10-08 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'}
+  ];
 
   timer: any;
   displayDate: any;
@@ -22,6 +25,7 @@ export class HomeComponent implements OnInit {
   displayFacebookLink: string;
 
   ngOnInit() {
+    this.year = moment(new Date()).format('YYYY');
     this.timer = moment(this.queue[0].date);
 
     this.displayDate = moment(this.queue[0].date).format('YYYY/MM/DD HH:mm:ss');
