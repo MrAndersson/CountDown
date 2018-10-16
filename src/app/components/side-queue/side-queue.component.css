@@ -1,0 +1,77 @@
+.read-more:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+}
+
+.side-menu-name {
+    font-size: 14px; 
+    margin: 0 0 10px 0;
+}
+
+.side-menu-info {
+    font-size: 12px; 
+    margin: 0 0 5px 0;
+}
+
+.sponsor-container {
+    margin-top: 40px;
+    margin-left: -10px;
+    background-color: rgba(232, 238, 240, 0.05);
+    /* background-color: #242424; */
+}
+
+.title-container {
+    background: #87c82e; 
+    margin: 0 0 13px 0;
+    height: 40px;
+}
+
+.arrow {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: 30px solid rgba(238, 21, 68, 0.85);
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+}
+
+.date-color {
+    background: rgba(238, 21, 68, 0.85);
+}
+
+.Jan {
+    background: blue;
+}
+.Feb {
+    background: turquoise;
+}
+.Mar {
+    background: purple;
+}
+.Apr {
+    background: plum;
+}
+.May {
+    background: #50c878;
+}
+.Jun {
+    background: yellow;
+}
+.Jul {
+    background: limegreen;
+}
+.Aug {
+    background: green;
+}
+.Sep {
+    background: orange;
+}
+.Oct {
+    background: orangered;
+}
+.Nov {
+    background: #6B4C13;
+}
+.Dec {
+    background: red;
+}

@@ -9,6 +9,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent }   from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { SideQueueComponent } from './components/side-queue/side-queue.component';
+import { MainQueueComponent } from './components/main-queue/main-queue.component';
 
 // import {RoutesArray} from './../app.routes';
 
@@ -27,7 +29,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SideQueueComponent,
+    MainQueueComponent
   ],
   imports: [
     NgbModule.forRoot(), // Bootstrap module

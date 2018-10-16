@@ -2,110 +2,11 @@
 
 <div class="container-fluid crimson-bg" style="padding-bottom: 30px; margin-top:20px;">
 	<div class="row justify-content-md-center">
-    <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
-      <!-- <div class=" sponsor-container box-shadow">
-        <p style="margin-bottom: 3px">Filter</p>
-      </div>		 -->
-      <div class="sponsor-container box-shadow">
-				<h4 class="center-relative-to-parent marginsLR" style="margin-bottom: 3px; background: #89734c; color: #191c21; margin: 0 0 10px 0; height: 40px;">Kommande Event {{year}}</h4>
-        <div *ngFor="let i of queue; let i = index">
-					<div class="row">
-							<div class="col-md-2" [ngClass]="i.date+'' | date:'MMM'" style="border-radius: 5px; height: 55px; margin-left: 30px;">
-								<p style="font-size: 13px; margin-bottom: 0px;">{{i.date | date:'MMM'}}</p>
-								<div style="background: #242424; width: 48px; transform: translateX(-25%); height: 33px;">
-									<p class="center-relative-to-parent" style="margin-bottom: 0px; font-size: 20px;">{{i.date | date:"dd"}}</p>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<p style="font-size: 14px; margin: 0 0 10px 0;">{{i.name}}</p>
-								<p style="font-size: 12px; margin: 0 0 5px 0;"><span class="glyphicon glyphicon-map-marker"></span> {{i.location}}</p>
-								<p style="font-size: 12px; margin: 0 0 5px 0;"><span class="glyphicon glyphicon-time"></span> {{i.date | date:'HH:mm:ss'}}</p>
-								<p style="font-size: 12px; margin: 0 0 5px 0;" data-toggle="collapse" data-target="#infoSideMenu"><span class="glyphicon glyphicon-file"></span> Läs mer...</p>
-								<div class="collapse" id="infoSideMenu">
-									<p style="font-size: 12px; margin: 0 0 5px 0;"><span class="glyphicon glyphicon-user"></span> {{i.host}}</p>
-									<p style="font-size: 12px; margin: 0 0 5px 0;"><span class="glyphicon glyphicon-info-sign"></span> {{i.info}}</p>
-									<a href="{{displayFacebookLink}}" class="fa fa-facebook"></a>
-								</div>
-								<hr>
-							</div>
-					</div>
-        </div>
-      </div>
-    </div>
-
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 main-container box-shadow">
-			<h3 class="center-relative-to-parent" style="margin-top: 20px;">{{displayName}}</h3>
-      <br>
-      <h1 class="center-relative-to-parent">
-				<div>
-					{{days}}
-					<div class="center-relative-to-parent" style="font-size: 10px">
-						Day(s)
-					</div>
-				</div>
-				<div class="vl"></div>
-				<div>
-					{{hours}}
-					<div class="center-relative-to-parent" style="font-size: 10px">
-						Hour(s)
-					</div>
-				</div>
-				<div class="vl"></div>
-				<div>
-						{{minutes}}
-					<div class="center-relative-to-parent" style="font-size: 10px">
-							Minute(s)
-					</div>
-				</div>
-				<div class="vl"></div>
-				<div>
-						{{seconds}}
-					<div class="center-relative-to-parent" style="font-size: 10px">
-							Second(s)
-					</div>
-				</div>
-			</h1>
-			<br>
-			<div class="row">
-					<button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" data-target="#info" style="margin: 0 10px 0 10px;"> <span class="glyphicon glyphicon-option-horizontal"></span>
-					</button>
-					<a href="{{displayFacebookLink}}" class="fa fa-facebook"></a>
-			</div>
-			<br>
-			<div class="collapse" id="info">
-				<div class="center-relative-to-parent">
-					<h5><span class="glyphicon glyphicon-calendar"></span> {{displayDate}}</h5>
-				</div>
-				<br>
-				<div class="center-relative-to-parent">
-					<h5><span class="glyphicon glyphicon-map-marker"></span> {{displayLocation}}</h5>
-				</div>
-				<br>
-				<div class="center-relative-to-parent">
-					<h5><span class="glyphicon glyphicon-user"></span> {{displayHost}}</h5>
-				</div>
-			</div>
-			<br>
-			<hr>
+		<div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
+			<side-queue [queue]="queue"></side-queue>
 		</div>
-		<div class="d-none d-sm-block col-sm-1 col-md-1 col-lg-1"></div>
-		<!-- <div class="d-none d-sm-block col-sm-2 col-md-2 col-lg-2">
-			<div class="sponsor-container box-shadow social-container">
-				<h6 style="margin-left: 10px;">Facebook</h6>
-				<hr class="social-divider-container" />
-			</div>
-			<div class="sponsor-container box-shadow social-container">
-				<h6 style="margin-left: 10px;">Instagram</h6>
-				<hr class="social-divider-container" />
-			</div>
-		</div> -->
-		<!-- SPONSORS ON CELLPHONE #3B5998 #125688 -->
-		<div class="d-sm-none col-xs-1 col-sm-1 sponsor-container box-shadow marginsLR">
-			<p style="margin-bottom: 3px">Hostad av</p>
-			<hr style="margin-top: 5px; margin-bottom: 8px;"/>
-			<div *ngFor="let image of images; let i = index" style="display: inline-block">
-				<img class="card-img-top sponsor-phone" src="{{image}}">
-			</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<main-queue [queue]="queue"></main-queue>
 		</div>
 	</div>
 </div>

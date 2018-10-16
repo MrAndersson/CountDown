@@ -1,0 +1,31 @@
+<!-- <div class=" sponsor-container box-shadow">
+<p style="margin-bottom: 3px">Filter</p>
+</div>		 -->
+<div class="sponsor-container box-shadow">
+	<h4 class="center-relative-to-parent title-container">Kommande Event {{year}}</h4>
+	<div *ngFor="let event of queue | slice: 3; let i = index">
+		<div class="row">
+			<div class="col-md-2 date-color" style="height: 30px; margin: 0 0 0 15px; padding: 0 0 0 20px;">
+				<p style="font-size: 13px; margin: 4px 0 0 -15px; color: #242424;"><strong>{{event.date | date:'MMM'}} {{event.date | date:"dd"}}</strong></p>
+				<!-- <div style="background: #242424; width: 48px; transform: translateX(-25%); height: 33px;">
+					<p class="center-relative-to-parent" style="margin-bottom: 0px; font-size: 20px;"><strong>{{event.date | date:"dd"}}</strong></p>
+				</div> -->
+			</div>
+			<div class="col-md-1" style="padding: 0 0 0 0;">
+				<div class="arrow"></div>
+			</div>
+			<div class="col-md-8">
+				<p class="side-menu-name">{{event.name}}</p>
+				<p class="side-menu-info"><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</p>
+				<p class="side-menu-info"><span class="glyphicon glyphicon-time"></span> {{event.date | date:'HH:mm:ss'}}</p>
+				<p class="read-more side-menu-info"  data-toggle="collapse" [attr.data-target]="'#side' + i"><span class="glyphicon glyphicon-file"></span> Läs mer...</p>
+				<div class="collapse" [attr.id]="'side' + i">
+					<p class="side-menu-info"><span class="glyphicon glyphicon-user"></span> {{event.host}}</p>
+					<!-- <p class="side-menu-info"><span class="glyphicon glyphicon-info-sign"></span> {{i.info}}</p> -->
+					<a *ngIf="event.fLink" href="{{event.fLink}}" class="fa fa-facebook"></a>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>

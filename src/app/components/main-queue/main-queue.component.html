@@ -1,0 +1,55 @@
+<div class="container main-container box-shadow">
+	<div *ngFor="let event of arr; let i = index">
+		<h4 class="center-relative-to-parent marginsLR title-container" style="color: #191c21;">{{event.name}}</h4>
+		<h1 class="center-relative-to-parent" style="margin: 5px 0 0 0">
+			<div style="color: white; width: 48px;">
+				{{event.days}}
+				<div class="center-relative-to-parent timer-text-size">
+					Day(s)
+				</div>
+			</div>
+			<div class="vl"></div>
+			<div style="color: white; width: 48px;">
+				{{event.hours}}
+				<div class="center-relative-to-parent timer-text-size">
+					Hour(s)
+				</div>
+			</div>
+			<div class="vl"></div>
+			<div style="color: white; width: 48px;">
+				{{event.minutes}}
+				<div class="center-relative-to-parent timer-text-size">
+					Minute(s)
+				</div>
+			</div>
+			<div class="vl"></div>
+			<div style="color: white; width: 48px;">
+				{{event.seconds}}
+				<div class="center-relative-to-parent timer-text-size">
+					Second(s)
+				</div>
+			</div>
+			</h1>
+			<br>
+			<div class="row">
+				<button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" [attr.data-target]="'#main' + i" style="margin: 0 10px 0 10px;"> <span class="glyphicon glyphicon-option-horizontal"></span>
+				</button>
+				<a *ngIf="event.fLink" href="{{event.fLink}}" class="fa fa-facebook"></a>
+			</div>
+			<br>
+			<div class="collapse" [attr.id]="'main' + i">
+			<div class="center-relative-to-parent">
+				<h5><span class="glyphicon glyphicon-calendar"></span> {{event.date}}</h5>
+			</div>
+			<br>
+			<div class="center-relative-to-parent">
+				<h5><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</h5>
+			</div>
+			<br>
+			<div class="center-relative-to-parent">
+				<h5><span class="glyphicon glyphicon-user"></span> {{event.host}}</h5>
+			</div>
+		</div>
+		<hr style="margin: 0 0 16px 0">
+	</div>
+</div>
