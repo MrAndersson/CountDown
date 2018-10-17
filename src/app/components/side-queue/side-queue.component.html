@@ -3,16 +3,24 @@
 </div>		 -->
 <div class="sponsor-container box-shadow">
 	<h4 class="center-relative-to-parent title-container">Kommande Event {{year}}</h4>
+	<div style="margin: 10px 0 0 0;">
+	</div>
 	<div *ngFor="let event of queue | slice: 3; let i = index">
 		<div class="row">
-			<div class="col-md-2 date-color" style="height: 30px; margin: 0 0 0 15px; padding: 0 0 0 20px;">
-				<p style="font-size: 13px; margin: 4px 0 0 -15px; color: #242424;"><strong>{{event.date | date:'MMM'}} {{event.date | date:"dd"}}</strong></p>
+			<div class="col-md-3" style="padding: 0 0 0 20px;">
+				<div style="position: absolute; z-index: 100;">					
+					<div class="col-md-1" style="padding: 0 0 0 0;">
+						<p style="margin: 0 0 0 0;">{{event.date | date:'MMM'}}</p>
+						<p style="margin: 0 0 0 0; transform: translateY(-20%);">{{event.date | date:"dd"}}</p>
+					</div>
+				</div>
+				<div class="arrow">
+				</div>
+				<div class="arrow" style="border-left-width: 40px;">
+				</div>
 				<!-- <div style="background: #242424; width: 48px; transform: translateX(-25%); height: 33px;">
 					<p class="center-relative-to-parent" style="margin-bottom: 0px; font-size: 20px;"><strong>{{event.date | date:"dd"}}</strong></p>
 				</div> -->
-			</div>
-			<div class="col-md-1" style="padding: 0 0 0 0;">
-				<div class="arrow"></div>
 			</div>
 			<div class="col-md-8">
 				<p class="side-menu-name">{{event.name}}</p>
@@ -24,8 +32,11 @@
 					<!-- <p class="side-menu-info"><span class="glyphicon glyphicon-info-sign"></span> {{i.info}}</p> -->
 					<a *ngIf="event.fLink" href="{{event.fLink}}" class="fa fa-facebook"></a>
 				</div>
-				<hr>
+				<div style="margin: 0 0 10px 0;"></div>
+				<!-- <hr> -->
 			</div>
 		</div>
+	</div>
+	<div style="height: 10px; background-color: #87c82e;">
 	</div>
 </div>
