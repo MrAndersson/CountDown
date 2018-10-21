@@ -5,13 +5,13 @@ import { PropertyRead } from '@angular/compiler';
 @Component({
   selector: 'main-queue',
   templateUrl: './main-queue.component.html',
-  styleUrls: ['./main-queue.component.css']
+  styleUrls: ['./main-queue.component.less']
 })
 export class MainQueueComponent implements OnInit {
 
   @Input() queue: Array<Object>;
 
-  arr: Array<Object> = [];
+  arr: Array<Object>;
 
   days: string;
   hours: string;

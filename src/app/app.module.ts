@@ -11,6 +11,7 @@ import { AppComponent }   from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SideQueueComponent } from './components/side-queue/side-queue.component';
 import { MainQueueComponent } from './components/main-queue/main-queue.component';
+import { TitleBarComponent } from './components/utils/title-bar/title-bar.component';
 
 // import {RoutesArray} from './../app.routes';
 
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     SideQueueComponent,
-    MainQueueComponent
+    MainQueueComponent,
+    TitleBarComponent
   ],
   imports: [
     NgbModule.forRoot(), // Bootstrap module
