@@ -8,7 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TitleBarComponent implements OnInit {
 
   @Input() text = '';
-  @Input() colDef = '';
+  @Input() arrowLeft = '';
+  @Input() arrowRight = '';
+  @Input() paddingOne = '';
+  @Input() paddingTwo = '';
 
   constructor() { }
 

@@ -3,26 +3,25 @@
 </div>		 -->
 <div class="sponsor-container box-shadow">
 	<!-- <h4 class="center-relative-to-parent title-container">Kommande Event {{year}}</h4> -->
-	<app-title-bar [text]="titleText"
-				   [colDef]="'d-none d-sm-block col-sm-2 col-md-2 col-lg-2'"></app-title-bar>
+	<app-title-bar [text]="titleText"></app-title-bar>
 	<div *ngFor="let event of queue | slice: 3; let i = index">
 		<!-- <div class="row"> -->
-			<div class="col-md-12" style="padding: 0 0 0 0; position: absolute;">
+			<div class="col-12 col-md-12" style="padding: 0 0 0 0; position: absolute;">
 				<div style="position: absolute; z-index: 100;">					
-					<div class="col-md-1">
+					<div class="col-md-1" style="padding: 0 0 0 10px;">
 						<p style="margin: 0 0 0 0;">{{event.date | date:'MMM'}}</p>
 						<p style="margin: 0 0 0 0; transform: translateY(-20%);">{{event.date | date:"dd"}}</p>
 					</div>
 				</div>
-				<div class="arrow col-md-11">
+				<div class="arrow col-11 col-sm-11 col-md-11">
 				</div>
-				<div class="arrow col-md-1">
+				<div class="arrow col-1 col-sm-1 col-md-1">
 				</div>
 				<!-- <div style="background: #242424; width: 48px; transform: translateX(-25%); height: 33px;">
 					<p class="center-relative-to-parent" style="margin-bottom: 0px; font-size: 20px;"><strong>{{event.date | date:"dd"}}</strong></p>
 				</div> -->
 			</div>
-			<div class="col-md-10 offset-md-3">
+			<div class="col-10 offset-3 col-sm-10 offset-sm-3 col-md-10 offset-md-3">
 				<p class="side-menu-name">{{event.name}}</p>
 				<p class="side-menu-info"><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</p>
 				<p class="side-menu-info"><span class="glyphicon glyphicon-time"></span> {{event.date | date:'HH:mm:ss'}}</p>

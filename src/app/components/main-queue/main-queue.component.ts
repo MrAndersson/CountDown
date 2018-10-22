@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
-import { PropertyRead } from '@angular/compiler';
 
 @Component({
   selector: 'main-queue',
@@ -11,7 +10,7 @@ export class MainQueueComponent implements OnInit {
 
   @Input() queue: Array<Object>;
 
-  arr: Array<Object>;
+  arr: Array<Object> = [];
 
   days: string;
   hours: string;

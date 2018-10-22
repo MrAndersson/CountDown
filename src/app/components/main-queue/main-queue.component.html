@@ -1,6 +1,23 @@
 <div class="container main-container box-shadow">
+	<div *ngIf="arr.length === 0">
+		<app-title-bar [text]="'Det var en tom event lista'" 
+			[arrowLeft]="'left-arrow-green'" 
+			[arrowRight]="'right-arrow-green'"
+			[paddingOne]="'no-padding-left'" 
+			[paddingTwo]="'no-padding-right'"
+			></app-title-bar>
+		<span class="center-relative-to-parent" style="margin: 0 0 30px 0;">
+			<i class="far fa-sad-cry" style="font-size: 300px; color: #046b95;"></i>
+		</span>
+	</div>	
 	<div *ngFor="let event of arr; let i = index">
-		<h4 class="center-relative-to-parent marginsLR title-container" style="color: #191c21;">{{event.name}}</h4>
+		<!-- <h4 class="center-relative-to-parent marginsLR title-container" style="color: #191c21;">{{event.name}}</h4> -->
+		<app-title-bar [text]="event.name" 
+					   [arrowLeft]="'left-arrow-green'" 
+					   [arrowRight]="'right-arrow-green'"
+					   [paddingOne]="'no-padding-left'" 
+					   [paddingTwo]="'no-padding-right'"
+					   ></app-title-bar>
 		<h1 class="center-relative-to-parent" style="margin: 5px 0 0 0">
 			<div style="color: white; width: 48px;">
 				{{event.days}}
