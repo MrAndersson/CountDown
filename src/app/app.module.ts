@@ -2,7 +2,7 @@ import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule }            from '@ng-bootstrap/ng-bootstrap';
-import { HttpModule }           from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // import { nib } from '../../node_modules/nib';
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
       appRoutes,
       // { enableTracing: true } // debugging purposes only
     ),
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     {

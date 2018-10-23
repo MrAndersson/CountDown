@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -6,7 +6,7 @@ import * as moment from 'moment';
   templateUrl: './side-queue.component.html',
   styleUrls: ['./side-queue.component.less']
 })
-export class SideQueueComponent implements OnInit {
+export class SideQueueComponent implements OnInit, OnChanges {
 
   @Input() queue: Array<Object>;
 
@@ -16,13 +16,21 @@ export class SideQueueComponent implements OnInit {
   end: number;
 
   ngOnInit() {
-    const year = moment(new Date()).format('YYYY');
-    this.titleText = `Kommande Event ${year}`;
+    this.queueUpdate();
+    console.log('Side Queue', this);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.queueUpdate();
+  }
+
+  queueUpdate(): void {
+    // const year = moment(new Date()).format('YYYY');
+    // this.titleText = `Kommande Event ${year}`;
+    this.titleText = `Kommande Event`;
 
     this.start = -this.queue.length;
     this.end = 3
-
-    console.log('Side Queue', this);
   }
 
 }

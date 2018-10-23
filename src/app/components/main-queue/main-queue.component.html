@@ -49,22 +49,23 @@
 			</h1>
 			<br>
 			<div class="row">
-				<button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" [attr.data-target]="'#main' + i" style="margin: 0 10px 0 10px;"> <span class="glyphicon glyphicon-option-horizontal"></span>
-				</button>
-				<a *ngIf="event.fLink" href="{{event.fLink}}" class="fa fa-facebook"></a>
+				<!-- <button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" [attr.data-target]="'#main' + i" style="margin: 0 10px 0 10px;"> <span class="glyphicon glyphicon-option-horizontal"></span>
+				</button> -->
+				<a data-toggle="collapse" [attr.data-target]="'#main' + i" class="fas fa-plus-circle icon read-more" style="color: rgb(6,160,224)"></a>
+				<a *ngIf="event.fLink" href="{{event.fLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-square icon read-more"></a>
 			</div>
 			<br>
 			<div class="collapse" [attr.id]="'main' + i">
 			<div class="center-relative-to-parent">
-				<h5><span class="glyphicon glyphicon-calendar"></span> {{event.date}}</h5>
+				<h5><i class="far fa-calendar-alt"></i> {{event.date}}</h5>
 			</div>
 			<br>
 			<div class="center-relative-to-parent">
-				<h5><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</h5>
+				<h5><i class="fas fa-map-marker-alt"></i> {{event.location}}</h5>
 			</div>
 			<br>
 			<div class="center-relative-to-parent">
-				<h5><span class="glyphicon glyphicon-user"></span> {{event.host}}</h5>
+				<h5><i class="fas fa-user"></i> {{event.host}}</h5>
 			</div>
 		</div>
 		<!-- <hr style="margin: 0 0 16px 0"> -->

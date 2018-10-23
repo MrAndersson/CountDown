@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -6,7 +6,7 @@ import * as moment from 'moment';
   templateUrl: './main-queue.component.html',
   styleUrls: ['./main-queue.component.less']
 })
-export class MainQueueComponent implements OnInit {
+export class MainQueueComponent implements OnInit, OnChanges {
 
   @Input() queue: Array<Object>;
 
@@ -20,24 +20,32 @@ export class MainQueueComponent implements OnInit {
   timer: any;
 
   ngOnInit() {
-    if(this.queue.length > 0) {
-      // this.timer = moment(this.queue[0]['date']);
-      this.arr = this.queue.slice(-this.queue.length, 3);
-      this.arr = this.arr.map(e => {
-        e['timer'] = moment(e['date']);
-        e['date'] = moment(e['date']).format('YYYY MMMM dddd HH:mm:SS');
-        e['days'] = 0;
-        e['hours'] = 0;
-        e['minutes'] = 0;
-        e['seconds'] = 0;
-
-        return e;
-      });
-  
-      this.arr.map(e => this.countdown(e));
-    }
-
+    this.queueUpdate();
     console.log('Main Queue', this);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.queueUpdate();
+  }
+
+  queueUpdate(): void {
+    this.arr = this.queue.slice(-this.queue.length, 3);
+    this.arr = this.arr.map(e => {
+      e['timer'] = moment(e['date']);
+      e['date'] = moment(e['date'])
+                  .format('dddd D MMMM YYYY HH:mm')
+                  .split(' ')
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ');
+      e['days'] = 0;
+      e['hours'] = 0;
+      e['minutes'] = 0;
+      e['seconds'] = 0;
+
+      return e;
+    });
+  
+    this.arr.map(e => this.countdown(e));
   }
 
   countdown(obj): void {

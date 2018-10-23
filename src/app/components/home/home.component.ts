@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { HttpClient } from '@angular/common/http';
 
 moment.locale('sv')
 
@@ -12,18 +13,16 @@ export class HomeComponent implements OnInit {
 
   year: any;
   days: string;
-  queue: Array<any> = [
-    // {date: '2018-11-08 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-12 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-09 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-15 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-14 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-13 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', fLink: 'https://www.facebook.com/viktor.g.andersson.3', info: 'Hej bristol 4 lyf, m8!'},
-    // {date: '2018-11-16 18:34:30', host: 'HOST', location: 'STOCK', name: 'SUPER COOL BRISTOL PARTY', info: 'Hej bristol 4 lyf, m8!'}
-  ];
+  queue: Array<any> = [];
+
+  constructor(private http: HttpClient) {  }
 
   ngOnInit() {
-    this.queue = this.sort();
+
+    this.http.get('/assets/json/events.json').subscribe(e => {
+      this.queue = e.filter(item => moment(item.date).isAfter(new Date()));
+      this.queue = this.sort();
+    });
 
     console.log('Home', this)
   }

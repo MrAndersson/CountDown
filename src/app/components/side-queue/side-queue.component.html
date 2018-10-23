@@ -23,12 +23,12 @@
 			</div>
 			<div class="col-10 offset-3 col-sm-10 offset-sm-3 col-md-10 offset-md-3">
 				<p class="side-menu-name">{{event.name}}</p>
-				<p class="side-menu-info"><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</p>
-				<p class="side-menu-info"><span class="glyphicon glyphicon-time"></span> {{event.date | date:'HH:mm:ss'}}</p>
-				<p class="read-more side-menu-info"  data-toggle="collapse" [attr.data-target]="'#side' + i"><span class="glyphicon glyphicon-file"></span> Läs mer...</p>
+				<p class="side-menu-info"><i class="fas fa-map-marker-alt"></i> {{event.location}}</p>
+				<p class="side-menu-info"><i class="far fa-clock"></i> {{event.date | date:'HH:mm:ss'}}</p>
+				<p class="read-more side-menu-info"  data-toggle="collapse" [attr.data-target]="'#side' + i"><i class="fas fa-plus-circle" style="color: rgb(6,160,224)"></i> Läs mer...</p>
 				<div class="collapse" [attr.id]="'side' + i">
-					<p class="side-menu-info"><span class="glyphicon glyphicon-user"></span> {{event.host}}</p>
-					<a *ngIf="event.fLink" href="{{event.fLink}}" class="fa fa-facebook"></a>
+					<p class="side-menu-info"><i class="fas fa-user"></i> {{event.host}}</p>
+					<a *ngIf="event.fLink" href="{{event.fLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-square icon read-more"></a>
 				</div>
 				<div style="margin: 0 0 10px 0;"></div>
 			</div>
