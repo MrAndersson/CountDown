@@ -5,15 +5,11 @@ import { NgbModule }            from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-// import { nib } from '../../node_modules/nib';
-
 import { AppComponent }   from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SideQueueComponent } from './components/side-queue/side-queue.component';
 import { MainQueueComponent } from './components/main-queue/main-queue.component';
 import { TitleBarComponent } from './components/utils/title-bar/title-bar.component';
-
-// import {RoutesArray} from './../app.routes';
 
 /**
  * ROUTES

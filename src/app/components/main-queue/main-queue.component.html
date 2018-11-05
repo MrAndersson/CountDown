@@ -1,61 +1,56 @@
-<div class="container main-container box-shadow">
+<div class="main-container box-shadow">
 	<div *ngIf="arr.length === 0">
 		<app-title-bar [text]="'Det var en tom event lista'" 
 			[arrowLeft]="'left-arrow-green'" 
 			[arrowRight]="'right-arrow-green'"
-			[paddingOne]="'no-padding-left'" 
-			[paddingTwo]="'no-padding-right'"
 			></app-title-bar>
 		<span class="center-relative-to-parent" style="margin: 0 0 30px 0;">
 			<i class="far fa-sad-cry" style="font-size: 300px; color: #046b95;"></i>
 		</span>
 	</div>	
 	<div *ngFor="let event of arr; let i = index">
-		<!-- <h4 class="center-relative-to-parent marginsLR title-container" style="color: #191c21;">{{event.name}}</h4> -->
 		<app-title-bar [text]="event.name" 
 					   [arrowLeft]="'left-arrow-green'" 
 					   [arrowRight]="'right-arrow-green'"
-					   [paddingOne]="'no-padding-left'" 
-					   [paddingTwo]="'no-padding-right'"
 					   ></app-title-bar>
 		<h1 class="center-relative-to-parent" style="margin: 5px 0 0 0">
-			<div style="color: white; width: 48px;">
-				{{event.days}}
-				<div class="center-relative-to-parent timer-text-size">
-					Day(s)
-				</div>
+		<div style="color: white; width: 48px;">
+			{{event.days}}
+			<div class="center-relative-to-parent timer-text-size">
+				Day(s)
 			</div>
-			<div class="vl"></div>
-			<div style="color: white; width: 48px;">
-				{{event.hours}}
-				<div class="center-relative-to-parent timer-text-size">
-					Hour(s)
-				</div>
+		</div>
+		<div class="vl"></div>
+		<div style="color: white; width: 48px;">
+			{{event.hours}}
+			<div class="center-relative-to-parent timer-text-size">
+				Hour(s)
 			</div>
-			<div class="vl"></div>
-			<div style="color: white; width: 48px;">
-				{{event.minutes}}
-				<div class="center-relative-to-parent timer-text-size">
-					Minute(s)
-				</div>
+		</div>
+		<div class="vl"></div>
+		<div style="color: white; width: 48px;">
+			{{event.minutes}}
+			<div class="center-relative-to-parent timer-text-size">
+				Minute(s)
 			</div>
-			<div class="vl"></div>
-			<div style="color: white; width: 48px;">
-				{{event.seconds}}
-				<div class="center-relative-to-parent timer-text-size">
-					Second(s)
-				</div>
+		</div>
+		<div class="vl"></div>
+		<div style="color: white; width: 48px;">
+			{{event.seconds}}
+			<div class="center-relative-to-parent timer-text-size">
+				Second(s)
 			</div>
-			</h1>
-			<br>
-			<div class="row">
-				<!-- <button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" [attr.data-target]="'#main' + i" style="margin: 0 10px 0 10px;"> <span class="glyphicon glyphicon-option-horizontal"></span>
-				</button> -->
-				<a data-toggle="collapse" [attr.data-target]="'#main' + i" class="fas fa-plus-circle icon read-more" style="color: rgb(6,160,224)"></a>
-				<a *ngIf="event.fLink" href="{{event.fLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-square icon read-more"></a>
-			</div>
-			<br>
-			<div class="collapse" [attr.id]="'main' + i">
+		</div>
+		</h1>
+		<br>
+		<div class="row" style="margin: 0 0 0 0">
+			<a (click)="onClick(toggle[i])" data-toggle="collapse" [attr.data-target]="'#main' + i" class="fas fa-ellipsis-v icon read-more" style="color: rgb(6,160,224)"></a>
+			<a *ngIf="event.fLink" href="{{event.fLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-square icon read-more"></a>
+			<a *ngIf="event.gLink" href="{{event.gLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-google icon read-more" style="color: #ffd302"></a>
+			{{collapse}}
+		</div>
+		<br>
+		<div class="collapse" [attr.id]="'main' + i">
 			<div class="center-relative-to-parent">
 				<h5><i class="far fa-calendar-alt"></i> {{event.date}}</h5>
 			</div>
@@ -68,6 +63,5 @@
 				<h5><i class="fas fa-user"></i> {{event.host}}</h5>
 			</div>
 		</div>
-		<!-- <hr style="margin: 0 0 16px 0"> -->
 	</div>
 </div>

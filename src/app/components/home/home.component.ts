@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 moment.locale('sv')
 
@@ -13,14 +14,14 @@ export class HomeComponent implements OnInit {
 
   year: any;
   days: string;
-  queue: Array<any> = [];
+  queue: any;
 
   constructor(private http: HttpClient) {  }
 
   ngOnInit() {
 
-    this.http.get('/assets/json/events.json').subscribe(e => {
-      this.queue = e.filter(item => moment(item.date).isAfter(new Date()));
+    this.http.get<Array<any>>('/assets/json/events.json').subscribe(e => {
+      this.queue = e.filter(item => moment(item['date']).isAfter(new Date()));
       this.queue = this.sort();
     });
 

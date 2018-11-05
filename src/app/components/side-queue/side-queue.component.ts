@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -9,6 +9,7 @@ import * as moment from 'moment';
 export class SideQueueComponent implements OnInit, OnChanges {
 
   @Input() queue: Array<Object>;
+  @Input() size: string;
 
   titleText: String;
 
@@ -25,6 +26,9 @@ export class SideQueueComponent implements OnInit, OnChanges {
   }
 
   queueUpdate(): void {
+    if(this.queue == undefined) {
+      return;
+    }
     // const year = moment(new Date()).format('YYYY');
     // this.titleText = `Kommande Event ${year}`;
     this.titleText = `Kommande Event`;

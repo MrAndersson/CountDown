@@ -1,7 +1,7 @@
-<div class="container-fluid crimson-bg" style="padding-bottom: 30px; margin-top:20px;">
+<div class="container-fluid crimson-bg" style="margin: 20px 0 30px 0;">
 	<div class="row justify-content-md-center">
 		<div class="col-md-5 col-lg-4 col-xl-3 d-none d-md-block">
-			<side-queue [queue]="queue"></side-queue>
+			<side-queue [queue]="queue" [size]="'md'"></side-queue>
 		</div>
 		<div class="col-12 col-sm-8 col-md-7 col-lg-7 col-xl-5">
 			<main-queue [queue]="queue"></main-queue>
@@ -9,27 +9,40 @@
 	</div>
 </div>
 
-<div class="container-fluid crimson-bg d-md-none" style="padding-bottom: 30px; margin-top:20px;">
-	<div class="justify-content-md-center">
+<!-- <div class="row fixed-bottom">
+		<div class="col-6 col-sm-6 col-md-6 col-lg-6 d-none d-md-block left-arrow-no-padding">
+			<div class="left-arrow margin-neg-right" style="margin: 0 -106px 0 0">
+			</div>
+		</div>
+		<div class="col-6 col-sm-6 col-md-6 col-lg-6 d-none d-md-block right-arrow-no-padding" style="right: 0;">	
+			<div class="right-arrow margin-neg-left" style="margin: 0 0 0 -106px">
+			</div>
+		</div>
+</div> -->
+
+<!-- SMALL SCREENS -->
+
+<div class="container-fluid crimson-bg d-md-none" style="margin: -45px 0 0 0;">
+	<div class="row justify-content-md-center">
 		<div class="col-12 col-sm-8">
-			<side-queue [queue]="queue"></side-queue>
+			<side-queue [queue]="queue" [size]="'sm'"></side-queue>
 		</div>
 	</div>
 </div>
 
-<div class="row fixed-bottom">
+<!-- <div class="row d-md-none" style="margin: 40px 0 0 0;">
 	<div class="col-6 col-sm-6 col-md-6 col-lg-6 left-arrow-no-padding">
-		<div class="left-arrow margin-neg-right">
+		<div class="left-arrow" style="margin: 0 -85px 0 0">
 		</div>
 	</div>
 	<div class="col-6 col-sm-6 col-md-6 col-lg-6 right-arrow-no-padding" style="right: 0;">	
-		<div class="right-arrow margin-neg-left">
+		<div class="right-arrow" style="margin: 0 0 0 -85px">
 		</div>
 	</div>
-</div>
+</div> -->
 
-<div class="d-block d-sm-none debug-col-text"><p style="color: white;">XS</p></div>
+<!-- <div class="d-block d-sm-none debug-col-text"><p style="color: white;">XS</p></div>
 <div class="d-none d-sm-block d-md-none debug-col-text"><p style="color: white;">SM</p></div>
 <div class="d-none d-md-block d-lg-none debug-col-text"><p style="color: white;">MD</p></div>
 <div class="d-none d-lg-block d-xl-none debug-col-text"><p style="color: white;">LG</p></div>
-<div class="d-none d-xl-block debug-col-text" ><p style="color: white;">XL</p></div>
+<div class="d-none d-xl-block debug-col-text" ><p style="color: white;">XL</p></div> -->

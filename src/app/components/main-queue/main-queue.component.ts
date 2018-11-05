@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -29,11 +29,15 @@ export class MainQueueComponent implements OnInit, OnChanges {
   }
 
   queueUpdate(): void {
+    if(this.queue == undefined) {
+      return;
+    }
+
     this.arr = this.queue.slice(-this.queue.length, 3);
     this.arr = this.arr.map(e => {
       e['timer'] = moment(e['date']);
       e['date'] = moment(e['date'])
-                  .format('dddd D MMMM YYYY HH:mm')
+                  .format('dddd D MMM YYYY HH:mm')
                   .split(' ')
                   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                   .join(' ');

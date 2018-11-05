@@ -10,8 +10,6 @@ export class TitleBarComponent implements OnInit {
   @Input() text = '';
   @Input() arrowLeft = '';
   @Input() arrowRight = '';
-  @Input() paddingOne = '';
-  @Input() paddingTwo = '';
 
   constructor() { }
 
