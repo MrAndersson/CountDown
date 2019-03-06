@@ -21,7 +21,7 @@ export class MainQueueComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.queueUpdate();
-    console.log('Main Queue', this);
+    // console.log('Main Queue', this);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -41,8 +41,8 @@ export class MainQueueComponent implements OnInit, OnChanges {
                   .split(' ')
                   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                   .join(' ');
-      e['days'] = 0;
-      e['hours'] = 0;
+      e['days']    = 0;
+      e['hours']   = 0;
       e['minutes'] = 0;
       e['seconds'] = 0;
 
@@ -55,9 +55,13 @@ export class MainQueueComponent implements OnInit, OnChanges {
   countdown(obj): void {
     setInterval(() => {
       const diff = moment(obj['timer'].diff(moment(new Date())));
+      
+      let days = diff.add('s', 1).format('DDD');
 
-      obj['days'] = diff.add('s', 1).format('DD');
-      obj['hours'] = diff.add('s', 1).format('HH');
+      days = parseInt(days) > 99 ? days : diff.add('s', 1).format('DD');
+
+      obj['days']    = days;
+      obj['hours']   = diff.add('s', 1).format('HH');
       obj['minutes'] = diff.add('s', 1).format('mm');
       obj['seconds'] = diff.add('s', 1).format('ss');
 

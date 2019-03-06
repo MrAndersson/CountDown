@@ -1,4 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+/**************
+** VARIABLES **
+***************/
+
+@fontSizeMobile: 25px;
+@backgroundMobile: 35px;
+
+@fontSizePc: xx-large;
+@backgroundPc: 42px;
+
+
 body {
     overflow-x: hidden;
     background-image: url("/assets/tiles/cartographer.png");
@@ -83,4 +93,79 @@ hr {
 
 .box-shadow {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.5);
+}
+
+/*****************
+** SOCIAL MEDIA ** 
+*****************/
+
+.social-background {
+    border-radius: 20%;
+	width: @backgroundPc;
+    height: @backgroundPc;
+
+    &.google {
+        border-radius: 50%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width:  @backgroundMobile;
+        height: @backgroundMobile;
+    }
+
+    margin-right: 10px;
+    display:inline-block;
+
+    .fab{
+        color: white;
+        font-size: @fontSizePc;
+    
+        position: relative;
+        float: left;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+    
+        @media screen and (max-width: 600px) {
+            font-size: @fontSizeMobile;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .fas {
+        color: white;
+        font-size: @fontSizePc;
+    
+        position: relative;
+        float: left;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        @media screen and (max-width: 600px) {
+            font-size: @fontSizeMobile;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.social-background.facebook {
+    background: #007bff;
+}
+
+.social-background.google {
+    @borderWidth: 10px;
+    
+    border-top:    @borderWidth solid #f44336;
+    border-right:  @borderWidth solid #0091ea;
+    border-bottom: @borderWidth solid #4caf50; 
+    border-left:   @borderWidth solid #ffc107;
 }

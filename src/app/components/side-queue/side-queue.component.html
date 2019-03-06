@@ -20,8 +20,12 @@
 			<p (click)="onClick(toggle[i])" class="read-more side-menu-info" data-toggle="collapse" [attr.data-target]="'#side' + i + size"><i class="fas fa-ellipsis-v" style="color: rgb(6,160,224)"></i> Läs mer...</p>
 			<div class="collapse" [attr.id]="'side' + i + size">
 				<p class="side-menu-info"><i class="fas fa-user"></i> {{event.host}}</p>
-				<a *ngIf="event.fLink" href="{{event.fLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-facebook-square icon read-more"></a>
-				<a *ngIf="event.gLink" href="{{event.gLink}}" target="_blank" rel="noopener noreferrer" class="fab fa-google icon read-more" style="color: #ffd302"></a>
+				<div *ngIf="event.fLink" class="social-background facebook read-more">
+					<a href="{{event.fLink}}" target="_blank" class="fab fa-facebook"></a>
+				</div>
+				<div *ngIf="event.gLink" class="social-background google read-more">
+					<a href="{{event.gLink}}" target="_blank" class="fab fa-google"></a>
+				</div>
 			</div>
 			<div style="margin: 0 0 10px 0;"></div>
 		</div>

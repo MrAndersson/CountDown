@@ -18,7 +18,7 @@ export class SideQueueComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.queueUpdate();
-    console.log('Side Queue', this);
+    // console.log('Side Queue', this);
   }
 
   ngOnChanges(changes: SimpleChanges) {
