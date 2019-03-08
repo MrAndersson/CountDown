@@ -14,28 +14,28 @@
 					   [arrowRight]="'right-arrow-green'"
 					   ></app-title-bar>
 		<h1 class="center-relative-to-parent" style="margin: 5px 0 0 0">
-		<div style="color: white;">
+		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}">
 			{{event.days}}
 			<div class="center-relative-to-parent timer-text-size">
 				Day(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div style="color: white; width: 48px;">
+		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
 			{{event.hours}}
 			<div class="center-relative-to-parent timer-text-size">
 				Hour(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div style="color: white; width: 48px;">
+		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
 			{{event.minutes}}
 			<div class="center-relative-to-parent timer-text-size">
 				Minute(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div style="color: white; width: 48px;">
+		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
 			{{event.seconds}}
 			<div class="center-relative-to-parent timer-text-size">
 				Second(s)

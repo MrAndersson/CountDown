@@ -23,7 +23,21 @@ export class HomeComponent implements OnInit {
     // this.http.get<Array<any>>('/assets/json/events.json').subscribe(e => {
     this.http.get<Array<any>>('https://sheetsu.com/apis/v1.0su/2453f9630a26').subscribe(e => {
       if(e) {
-        this.queue = e.filter(item => moment(item['date']).isAfter(new Date()));
+        let curDate = moment(new Date());
+
+        this.queue = e.filter((item, i) => {
+          let date = moment(item['date']);
+
+          if(date.isSame(curDate, 'day')) {
+            let endTime = moment(curDate).endOf('day');
+            let hours = Math.floor(moment.duration(endTime.diff(date)).asHours());
+
+            date = date.add(hours, 'hour')
+          }
+
+          return date.isAfter(curDate);
+        });
+
         this.queue = this.sort();
       }
       this.main = true;
