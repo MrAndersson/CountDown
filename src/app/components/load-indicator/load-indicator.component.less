@@ -1,0 +1,31 @@
+@borderSize: .25em;
+
+.spinner-placement {
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    .spinner {
+        width: 5rem;
+        height: 5rem;
+
+        border-left:   @borderSize solid rgba(238, 21, 68, 0.85);
+        border-bottom: @borderSize solid #ffd302;
+        border-top:    @borderSize solid rgb(5,142,199);
+
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner-border .75s linear infinite;
+        animation: spinner-border .75s linear infinite;
+    }
+}
+
+.spinner-center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+}

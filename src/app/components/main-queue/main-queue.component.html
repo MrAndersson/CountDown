@@ -1,4 +1,4 @@
-<div class="main-container box-shadow">
+<div class="main-container box">
 	<div *ngIf="arr.length === 0">
 		<app-title-bar [text]="'Det var en tom event lista'" 
 			[arrowLeft]="'left-arrow-green'" 
@@ -14,30 +14,38 @@
 					   [arrowRight]="'right-arrow-green'"
 					   ></app-title-bar>
 		<h1 class="center-relative-to-parent" style="margin: 5px 0 0 0">
-		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}">
-			{{event.days}}
-			<div class="center-relative-to-parent timer-text-size">
+		<div>
+			<div class="center-relative-to-parent" [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}">
+				{{event.days}}
+			</div>
+			<div class="center-relative-to-parent timer-text-styling">
 				Day(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
-			{{event.hours}}
-			<div class="center-relative-to-parent timer-text-size">
+		<div class="timer-width">
+			<div class="center-relative-to-parent" [ngStyle]="{'color': event.hours === '00' && event.days === '00' ? '#87c82e' : 'white'}">
+				{{event.hours}}
+			</div>
+			<div class="center-relative-to-parent timer-text-styling">
 				Hour(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
-			{{event.minutes}}
-			<div class="center-relative-to-parent timer-text-size">
+		<div class="timer-width" >
+			<div class="center-relative-to-parent" [ngStyle]="{'color': event.minutes === '00' && event.hours === '00' ? '#87c82e' : 'white'}">
+				{{event.minutes}}
+			</div>
+			<div class="center-relative-to-parent timer-text-styling">
 				Minute(s)
 			</div>
 		</div>
 		<div class="vl"></div>
-		<div [ngStyle]="{'color' : event.days === '00' ? '#87c82e' : 'white'}" style="width: 48">
-			{{event.seconds}}
-			<div class="center-relative-to-parent timer-text-size">
+		<div class="timer-width" >
+			<div class="center-relative-to-parent" [ngStyle]="{'color': event.seconds === '00' && event.minutes == '00' ? '#87c82e' : 'white'}">
+				{{event.seconds}}
+			</div>
+			<div class="center-relative-to-parent timer-text-styling">
 				Second(s)
 			</div>
 		</div>
@@ -45,7 +53,7 @@
 		<br>
 		<div class="row" style="margin: 0 0 0 0">
 			<div *ngIf="event.fLink" class="social-background read-more">
-				<a (click)="onClick(toggle[i])" data-toggle="collapse" [attr.data-target]="'#main' + i" class="fas fa-ellipsis-v" style="color: rgb(6,160,224);"></a>
+				<a data-toggle="collapse" [attr.data-target]="'#main' + i" class="fas fa-ellipsis-v" style="color: rgb(6,160,224);"></a>
 			</div>
 			<div *ngIf="event.fLink" class="social-background facebook read-more">
 				<a href="{{event.fLink}}" target="_blank" class="fab fa-facebook"></a>

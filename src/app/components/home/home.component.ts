@@ -11,13 +11,15 @@ moment.locale('sv')
 })
 export class HomeComponent implements OnInit {
 
-  main: boolean = false;
+  ready: boolean;
 
   year: any;
   days: string;
   queue: any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) {
+    this.ready = false;
+  }
 
   ngOnInit() {
     // this.http.get<Array<any>>('/assets/json/events.json').subscribe(e => {
@@ -40,10 +42,13 @@ export class HomeComponent implements OnInit {
 
         this.queue = this.sort();
       }
-      this.main = true;
     });
 
     // console.log('Home', this);
+  }
+
+  readyHome(bool) {
+    this.ready = bool;
   }
 
   sort() {

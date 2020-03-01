@@ -8,13 +8,26 @@
 @fontSizePc: xx-large;
 @backgroundPc: 42px;
 
+@bgImg: url("/assets/tiles/cartographer.png");
+@bgImgRep: repeat;
+
 
 body {
     overflow-x: hidden;
-    background-image: url("/assets/tiles/cartographer.png");
-    background-repeat: repeat;
+    background-image: @bgImg;
+    background-repeat: @bgImgRep;
     color: #656566;
 }
+
+// .main-container {
+//     background-image: @bgImg;
+//     background-repeat: @bgImgRep;
+// }
+
+// .sponsor-container {
+//     background-image: @bgImg;
+//     background-repeat: @bgImgRep;
+// }
 
 /* Font Family Setup*/
 @font-face {
@@ -59,7 +72,6 @@ h5 {
     color: white;
 }
 
-
 h6 {
     color: white;
 }
@@ -91,9 +103,39 @@ hr {
     margin-right: 10px;
 }
 
-.box-shadow {
+.box {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.5);
 }
+
+// .box::before {
+    // margin: 40px 15px 10px 15px;
+
+    // &.main-container {
+    //     margin: 40px 15px 10px 15px;
+    // }
+
+    
+    // content: '';
+    // position: absolute;
+    // left: -2px;
+    // right: -2px;
+    // top: -2px;
+    // bottom: -2px;
+    // background: #fff;
+    // transform: skew(2deg, 2deg);
+    // z-index: -1;
+    
+    
+// }
+
+//background: linear-gradient(315deg, #ff0057, #e64a19);
+//background: linear-gradient(315deg, #89ff00, #00bcd4);
+//background: linear-gradient(315deg, #e91e63, #5d02ff);
+//background: linear-gradient(315deg, #ff0000, #ffc107);
+
+// .box::before {
+//     background: linear-gradient(315deg, #00bcd4, #89ff00);
+// }
 
 /*****************
 ** SOCIAL MEDIA ** 

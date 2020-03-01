@@ -1,4 +1,4 @@
- <div class="sponsor-container box-shadow">
+<div class="sponsor-container box">
 	<app-title-bar [text]="titleText"></app-title-bar>
 	<div *ngFor="let event of queue | slice: 3; let i = index">
 		<div class="col-12 col-md-12" style="padding: 0 0 0 0; position: absolute;">
@@ -17,7 +17,7 @@
 			<p class="side-menu-name">{{event.name}}</p>
 			<p class="side-menu-info"><i class="fas fa-map-marker-alt"></i> {{event.location}}</p>
 			<p class="side-menu-info"><i class="far fa-clock"></i> {{event.date | date:'HH:mm:ss'}}</p>
-			<p (click)="onClick(toggle[i])" class="read-more side-menu-info" data-toggle="collapse" [attr.data-target]="'#side' + i + size"><i class="fas fa-ellipsis-v" style="color: rgb(6,160,224)"></i> Läs mer...</p>
+			<p class="read-more side-menu-info" data-toggle="collapse" [attr.data-target]="'#side' + i + size"><i class="fas fa-ellipsis-v" style="color: rgb(6,160,224)"></i> Läs mer...</p>
 			<div class="collapse" [attr.id]="'side' + i + size">
 				<p class="side-menu-info"><i class="fas fa-user"></i> {{event.host}}</p>
 				<div *ngIf="event.fLink" class="social-background facebook read-more">

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -9,6 +9,8 @@ import * as moment from 'moment';
 export class MainQueueComponent implements OnInit, OnChanges {
 
   @Input() queue: Array<Object>;
+  @Output() readyMainQueue;
+
 
   arr: Array<Object> = [];
 
@@ -18,6 +20,10 @@ export class MainQueueComponent implements OnInit, OnChanges {
   seconds: string;
 
   timer: any;
+
+  constructor() {
+    this.readyMainQueue = new EventEmitter();
+  }
 
   ngOnInit() {
     this.queueUpdate();
@@ -30,6 +36,7 @@ export class MainQueueComponent implements OnInit, OnChanges {
 
   queueUpdate(): void {
     if(this.queue == undefined) {
+      this.readyMainQueue.emit(true);
       return;
     }
 
@@ -56,25 +63,39 @@ export class MainQueueComponent implements OnInit, OnChanges {
   }
 
   countdown(obj): void {
-    let today = new Date();
     setInterval(() => {
-      const diff = moment(obj['timer'].diff(moment(new Date())));
-      
-      if(obj['timer'].isBefore(today)) {
+      // let today = moment();
+      // let diffF = moment(obj['timer'].diff(today)).unix();
+
+      if(obj['timer'].isBefore(moment())) {
         obj['days']    = '00';
         obj['hours']   = '00';
         obj['minutes'] = '00';
         obj['seconds'] = '00';
       } 
       else {
-        let days = diff.add('s').format('DDD');
-        days = parseInt(days) > 99 ? days : parseInt(days) === 1 ? '00' : diff.add('s').format('DD');
+        var event = moment(obj['timer']).unix();
+        var today = moment().unix();
+  
+        var diffTime = moment.duration((event - today)*1000, 'milliseconds');
+  
+        var diffDays = moment(obj['timer'].diff(moment().startOf('day')));
+
+        let days = diffDays.add('s').format('DDD');
+        
+        days = parseInt(days) > 11 ? days : diffDays.add('s').format('DD');
+
+        var hours = moment.utc(diffTime.asMilliseconds()).format('HH');
+        var mins  = moment.utc(diffTime.asMilliseconds()).format('mm');
+        var secs  = moment.utc(diffTime.asMilliseconds()).format('ss');
 
         obj['days']    = days;
-        obj['hours']   = diff.add('s').format('HH');
-        obj['minutes'] = diff.add('s').format('mm');
-        obj['seconds'] = diff.add('s').format('ss');
+        obj['hours']   = hours;
+        obj['minutes'] = mins;
+        obj['seconds'] = secs;
       }
     }, 1000);
+
+    this.readyMainQueue.emit(true);
   }
 }
