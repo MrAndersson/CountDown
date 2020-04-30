@@ -25,7 +25,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "glyphicons-only-bootstrap": "^1.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "moment": "^2.22.2",
     "ngFileReader": "0.0.8",
     "rxjs": "^6.0.0",
